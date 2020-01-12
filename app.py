@@ -11,9 +11,10 @@ import os
 app = Flask(__name__)
 
 queries = pugsql.module('queries/')
-queries.connect('sqlite:///lifelog.db')
+queries.connect('sqlite:///db/pythonsqlite.db')
 
 app.config['SECRET_KEY'] = 'mysecret'
+app.config['SQLALCHEMY']
 
 app.route('/login', methods=['GET', 'POST'])
 def login():
