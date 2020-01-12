@@ -1,22 +1,21 @@
 from flask import Flask, render_template, url_for, flash, redirect, request
 from flask_login import LoginManager, login_user, current_user, logout_user, login_required
 from werkzeug.security import generate_password_hash,check_password_hash
-from LifeLog.users.forms import LoginForm, RegisterForm
+from users.forms import LoginForm, RegisterForm
 import pugsql
 import sqlite3
 import os
 
-from LifeLog.users.forms import LoginForm
 
 
 app = Flask(__name__)
 
 queries = pugsql.module('queries/')
-queries.connect('sqlite:///loglife.db')
+queries.connect('sqlite:///lifelog.db')
 
 app.config['SECRET_KEY'] = 'mysecret'
 
-app.route('/login', methods=['GET', 'POST']):
+app.route('/login', methods=['GET', 'POST'])
 def login():
 
     form = LoginForm()
@@ -43,7 +42,7 @@ def logout():
     logout_user()
     return redirect(url_for('index.html'))
 
-app.route('/register', methods=['GET', 'POST']):
+app.route('/register', methods=['GET', 'POST'])
 def register():
     form = RegisterForm()
 
