@@ -1,5 +1,14 @@
+
+Hello World</h1>
+
 {% extends "base.html" %}
+<h1>
+Hello World</h1>
+
 {% block content %}
+
+<h1>
+Hello World</h1>
 <form method="POST">
     {# This hidden_tag is a CSRF security feature. #}
     {{ form.hidden_tag() }}
@@ -9,3 +18,5 @@
     {{ form.submit() }}
 </form>
 {% endblock %}
+<h1>
+Hello Loren</h1>
